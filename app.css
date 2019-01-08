@@ -1,0 +1,395 @@
+.error{
+    color: red;
+    font-size: 20px;
+}
+#show_name{
+    padding: 40px;
+    font-family: MyFont;
+    letter-spacing: -1px;
+    color: rgb(255,219,84);
+    z-index: 1;
+    float: right;
+    font-size: 25px;
+}
+input[type=text], input[type=password],input[type=email],input[type=date]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+button {
+    background-color: rgb(77,21,154);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-family: myFont;
+    font-size: 24px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+#close{
+    cursor:pointer;
+    float:right;
+}
+.modal {
+    z-index: 3;
+    display: none;
+    padding-top: 70px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+	font-family:myFont;
+}
+
+.modal-content {
+    margin: auto;
+    background-color: rgb(77,21,154);
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 750px;
+	color: #ddb82e;
+}
+.modal-content h2{
+	color: #fdd53f;
+}
+.container:after,.container:before{
+    content:"";
+    display:table;
+    clear:both;
+}
+.animate-top {
+    position: relative;
+    animation: animatetop 0.4s;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+#menu {
+    visibility: collapse;
+    font-size:20px;
+    position: fixed;
+    z-index: 1;
+    background:black;
+    width: 100%;
+    top: 0;
+    left: 0;
+    zoom:80%;
+}
+
+#menu ul {
+    list-style: none;
+}
+
+#menu ul li {
+    display: inline;
+    float: left;
+    margin-bottom: 20px;
+}
+
+#menu ul li a {
+    padding: 20px;
+    font-family: MyFont;
+    letter-spacing: -1px;
+    color: rgb(255,219,84);
+}
+
+#menu ul li a:hover {
+    -webkit-box-shadow: 0 -5px 10px #777;
+    background: -webkit-linear-gradient(rgb(77,21,154),rgb(255,255,255)) !important;
+    border-radius: 50px;
+    filter: alpha(opacity=90);
+    opacity: .90;
+    cursor: pointer;
+}
+
+#menu ul li a.active {
+    -webkit-box-shadow: 0 -5px 10px #777;
+    background: -webkit-linear-gradient(rgb(77,21,154),rgb(255,255,255)) !important;
+    border-radius: 50px;
+}
+form{
+    color: #fdd53f;
+    font-family: MyFont;
+    border: 3px solid #f1f1f1;
+    font-size: 24px;
+}
+#Login {
+    visibility: collapse;
+}
+#Register {
+    visibility: collapse;
+    height: 60%;
+    zoom:80%;
+}
+#Game
+{
+    visibility: collapse;
+}
+@font-face {
+    font-family: MyFont;
+    src: url(fonts/_44v2.woff);
+}
+
+.bgimg {
+    background-color: pink;
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.display-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.display-center {
+    position: absolute;
+    left: 14%;
+}
+
+.animate-zoom {
+    animation: animatezoom 1s;
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+#pacman_logo {
+    height: 60px;
+    padding: 10px;
+}
+
+#name_logo {
+    height: 80px;
+}
+
+#Welcome {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#header {
+    float: left;
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    z-index: 2;
+    background-color: black;
+    visibility: collapse;
+    zoom:80%;
+}
+
+#footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    text-align: center;
+    color: gray;
+    visibility: collapse;
+    background-color: black;
+    clear: both;
+}
+
+body {
+    background-color: black;
+}
+
+.myButton {
+    box-shadow: inset 0px -3px 7px 0px #370085;
+    background: linear-gradient(to bottom, #eedbff 5%, #46128e 100%);
+    background-color: #eedbff;
+    border-radius: 42px;
+    border: 2px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #FEDF49;
+    font-family: MyFont;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 32px 76px;
+    text-decoration: none;
+    text-shadow: 0px 2px 0px #3c1178;
+    margin: 1em;
+}
+
+.myButton:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #46128e), color-stop(1, #eedbff));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#46128e', endColorstr='#eedbff',GradientType=0);
+    background-color: #46128e;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+.pacman_container{
+    border-radius:2px;
+    padding:20px;
+    width: 100px;
+}
+
+.pacman_container ul{
+    display:block;  
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.pacman_container li{
+width: 250px;
+    height: 50px;
+    display: block;
+    padding: 14px;
+    border: 1px solid  #46128e;
+    margin-bottom: 26px;
+    margin-left: 15px;
+    border-radius: 3px;
+}
+.pacman_container li > label{
+    display: block;
+    float: left;
+    margin-top: -25px;
+    height: 21px;
+    padding: 2px 5px 2px 5px;
+    color: #FEDF49;
+    overflow: hidden;
+    font-family: myFont;
+    background: black;
+    font-size: 30px;
+}
+.pacman_container li input{
+    border: 0;
+    width: 50%;
+    margin-left: 50%;
+    background-color: black;
+    color: #DDDDDD;
+    font-size: 30px;
+    font-family: myFont;
+}
+#canvas{
+    margin: 5px;
+
+}
+#canvasDiv{
+    margin-left: 20%;
+}
+.heart{
+    size: 5em;
+    padding: 5px;
+}
+.plusMinusConteiner {
+    display: flex;
+    list-style: none; 
+    color: red;
+
+}
+.btn {
+  background: linear-gradient(to bottom, #eedbff 5%, #46128e 100%);
+  -webkit-border-radius: 60;
+  border-radius: 60px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 21px;
+  padding: 10px 20px 10px 20px;
+  border: solid #585e61 2px;
+  text-decoration: none;
+  width: 50px;
+}
+
+.btn:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #46128e), color-stop(1, #eedbff));
+    text-decoration: none;
+}
+.btnMinus{
+    margin-right: -55px;
+}
+#game_pac{
+    visibility: collapse;
+    display: block;
+    zoom: 60%;
+}
+#start_btn{
+    margin-left: 53px;
+    width: 600px;
+}
+#pacman_form{
+    visibility: collapse;
+    top: 180px;
+    font-size: 18px;
+    color: #fdd53f;
+    font-family: MyFont;
+}
+#pacman_form input{
+    width: 600px;
+}
+
+#pacman_form label{
+    margin: 58px;
+}
+
+#pacman_form input{
+    margin-left: 53px;
+}
+#pwrapper{
+    display: flex;
+}
+    #startlbl{
+    display: grid;
+    z-index: 1;
+    color: white;
+    font-size: 85px;
+    font-family: myfont;
+    position: absolute;
+    padding: 78px;
+    }
+    #reset_btn{
+        margin-left: 50px;
+    }

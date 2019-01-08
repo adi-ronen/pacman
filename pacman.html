@@ -1,0 +1,189 @@
+<DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Pacman - Kobi & Adi</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script src="jquery.validate.js"></script>
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div id="logo">
+            <img id="pacman_logo" src="images\pacman.png">
+            <img id="name_logo" src="images\Logo.JPG">
+            <label id=show_name></label>
+        </div>  
+    </header>
+    <menu id="menu">
+        <br/><br/><br/>
+        <ul>
+            <li onclick="menu('Welcome')"><a> Welcome</a></li>
+            <li onclick="menu('Register')"><a id="m_Register">Register</a></li>
+            <li onclick="menu('Login')"><a id="m_Login">Login</a></li>
+            <li onclick="about()"><a id="m_About">About</a></li>
+        </ul>      
+    </menu>
+    <content>
+        <div class="bgimg" id="Welcome">
+            <embed src="sounds\pacman_beginning.wav" loop="false" hidden="true" autostart="true"/>
+            <div class="display-middle">
+                <div class="animate-zoom">
+                    <!-- <img id="pacman_logo" src="images\pacman.png"> -->
+                    <img src="images\Logo_black.JPG"/>
+                    <div class="display-center">
+                        <a class="myButton" onclick="menu('Register')">Register</a>
+                        <a class="myButton" onclick="menu('Login')">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Login" class="display-middle">
+            <form id="Login_form">
+                <div class="container">
+                    <label><b>Username</b></label>
+                    <input autocomplete="off" type="text" placeholder="Enter Username" name="uname" required>
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <button onclick="login()" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+        <div id="Register" class="display-middle">
+            <form action="mailto:adiron@post.bgu.ac.il" id="Register_form">
+                <div class="container">
+                    <label><b>Username</b></label>
+                    <input autocomplete="off" type="text" id="usname" placeholder="Enter Username" name="usname">
+                    <label><b>Password</b></label>
+                    <input autocomplete="off" type="password" id="pasw" placeholder="Enter Password" name="pasw">
+                    <label><b>First Name</b></label>
+                    <input autocomplete="off" type="text" placeholder="Enter First Name" name="fname">
+                    <label><b>Last Name</b></label>
+                    <input autocomplete="off" type="text" placeholder="Enter Last Name" name="lname">
+                    <label><b>E-mail</b></label>
+                    <input autocomplete="off" type="email" placeholder="Enter Email Adress" name="email">
+                    <label><b>Birth Date</b></label>
+                    <input autocomplete="off" type="date" name="bday" min="1900-01-01" max="2014-12-31">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+        <div class="modal" id="About">
+            <div class="modal-content animate-top">
+                <header class="container">
+                    <span onclick="document.getElementById('About').style.display = 'none'" id="close">x</span>
+                    <h2>About</h2>
+                </header>
+                <div class="container">
+                    <p>This site was created by Adi Ronen and Kobi Sekli as part of an exercise in the course Web-based Programming Frameworks, Ben-Gurion University of the Negev 2017.</p>
+					<p>We used jQuery Validation Plugin, and we used "font-awesome" toolkit.</p>
+                    <p>The main difficulties we encountered in the exercise were to divide the tasks between us, to get along with each other, to identify all the possible events in each situation in the game and to integrate everything so it would collaborate.</p>
+                </div>
+            </div>
+        </div>
+        <div class="pacman_container">
+            <div id="pacman_form" class="display-center">
+                <div>
+                    <label >Speed:</label>
+                    <div>
+                        <button class="btn btnMinus" id="formSpeedMinus">-</button>
+                        <input type="text" id="formSpeed" maxlength="100" readonly>
+                        <button class="btn" id="formSpeedPlus">+</button>
+                    </div>
+                    <label >Balls:</label>
+                    <div>
+                        <button class="btn btnMinus" id="formBallsMinus">-</button>
+                        <input type="text" id="formBalls" maxlength="100" readonly>
+                        <button class="btn" id="formBallsPlus">+</button>
+                    </div>
+                    <label >Time (seconds):</label>
+                    <div>
+                        <button class="btn btnMinus" id="formTimeMinus">-</button>
+                        <input type="text" id="formTime" maxlength="100" readonly>
+                        <button class="btn" id="formTimePlus">+</button>
+                    </div>
+                    <label >Monsters:</label>
+                    <div>
+                        <button class="btn btnMinus" id="formMonstersMinus">-</button>
+                        <input type="text" id="formMonsters" maxlength="100" readonly>
+                        <button class="btn" id="formMonstersPlus">+</button>
+                    </div>
+                    <button onclick="formStart()" id="start_btn">start</button>
+                </div>
+            </div>
+            <div id="game_pac">
+                <br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/>
+                <img id="cherry" width="0" height="0" src="images\cherry.png" style="visibility: collapse;">
+                <img id="heartimg" width="0" height="0" src="images\heart.png" style="visibility: collapse;">
+                <img id="clockimg" width="0" height="0" src="images\clock.png" style="visibility: collapse;">
+                <audio id="eatAudio" >
+                  <source src="sounds\pacman_chomp.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio id="deathAudio" >
+                    <source src="sounds\pacman_death.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <audio id="eatfruitAudio" >
+                        <source src="sounds\pacman_eatfruit.wav" type="audio/wav"/>
+                        Your browser does not support the audio element.
+                    </audio>
+                    <audio id="eatheartAudio" >
+                        <source src="sounds\pacman_extrapac.wav" type="audio/wav"/>
+                        Your browser does not support the audio element.
+                    </audio>
+                    <audio id="eatclockAudio" >
+                        <source src="sounds\pacman_eatghost.wav" type="audio/wav"/>
+                        Your browser does not support the audio element.
+                    </audio>
+                    <audio id="soundtrack" loop>
+                      <source src="sounds\manamana.mp3" type="audio/mp3"/>
+                      Your browser does not support the audio element.
+                  </audio>
+				  <audio id="soundtrack5" loop>
+                      <source src="sounds\SurfinBird.mp3" type="audio/mp3"/>
+                      Your browser does not support the audio element.
+                  </audio>
+                  <div id="pwrapper">
+                    <div id="game_details">
+                        <ul>
+                            <li >
+                                <label >SCORE:</label>
+                                <input type="text" id="lblScore" maxlength="100" readonly>
+                            </li>
+                            <li >
+                                <label >TIME:</label>
+                                <input  type="text" id="lblTime" maxlength="100" readonly>
+                            </li>
+                            <li >
+                                <label >Life:</label>
+                                <div class="plusMinusConteiner">
+                                    <i class="fa fa-heart fa-3x heart" aria-hidden="true" id="heart1"></i>
+                                    <i class="fa fa-heart fa-3x heart" aria-hidden="true" id="heart2"></i>
+                                    <i class="fa fa-heart fa-3x heart" aria-hidden="true" id="heart3"></i>
+                                    <i class="fa fa-heart fa-3x heart" aria-hidden="true" id="heart4"></i>
+                                </div>
+                            </li>
+                        </ul>
+                                <button onclick="resetGame()" id="reset_btn" style="width: 200px ">Restart</button>
+                    </div>
+                    <div id="canvasDiv" style="border:6px solid #46128e;width: 100%">
+                        <label id="startlbl" class="display-center">Press any arrow key to start <br/> <img src="images\arrow-keys.png" class="display-middle" style="padding-top: 350px;"></label> 
+                        <canvas id="canvas" ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </content>
+    <footer id="footer">
+        &copy; Copyright: Adi Ronen, Kobi Sekli BGU University of the Negev 2017. Contact us at: adiron@post.bgu.ac.il
+    </footer>
+    <script type="text/javascript">
+        
+    </script>
+<div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_medium=website&amp;utm_content=footer_img"><img src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"  alt="www.000webhost.com"></a></div></body>
+</html>
