@@ -1,3 +1,5 @@
 # pacman
 
-play at: http://kobadi.comuf.com/
+http://kobadi.comuf.com/
+Username: a
+Password: a
